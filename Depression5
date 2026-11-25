@@ -196,3 +196,100 @@ print(f"average {sum(numbers)/len(numbers)}")
 
 names = ["chaim","gad","ori","mochamad"]
 print((names := [n for n in names if n != target]) if (target := input( "Enter name to serch ")) in names else "Name not found")
+
+# question 25
+list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(even:=[i for i in list1 if i%2==0])
+print(odd:=[i for i in list1 if i%2 !=0])
+print(bigger:=[i for i in list1 if i >20])
+
+# question 26
+list1= [1,2,3,4,5,6,7,8,9,10,1,2,3,1]
+found= []
+serch = int(input("Enter number to search "))
+for i , num in enumerate(list1):
+    if num == serch:
+        found.append(i)
+print(found)
+
+# question 27
+list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+list2= [11,12,13,14,15,16,17,18,19,20]
+list3 = list1+list2
+print(list3[:5])
+print(list3[-5:])
+print(list3[::-1])
+
+# question 28
+list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+num1 = int(input("Enter number to serch: "))
+for i in range(len(list1)):
+    if list1[i] == num1:
+        break
+else:
+    list1.append(num1)
+print(list1)
+
+# finall boos
+
+grades = [85, 72, 90, 55, 100, 63, 48, 77]
+exit = True
+while exit:
+    print("""
+===== Grades Management =====
+
+1. Show all grades
+2. Add a grade
+3. Search for a grade
+4. Remove a grade
+5. Show passing grades
+6. Show failing grades
+7. Show highest and lowest grade
+8. Show average grade
+9. Show first 3 grades
+10. Show grades in reverse
+0. Exit
+""")
+    choice= input("select your choice: ")
+    match choice:
+        case "1":
+            for i in grades:
+                print(i)
+        case "2":
+            grades.append(int(input("Enter number to add ")))
+        case "3":
+            serch_grade= int(input("Enter number to serch "))
+            found= []
+            for i , grade in enumerate(grades):
+                if serch_grade == grade:
+                    found.append(i)
+            if found:
+                print(found)
+            else:
+                print("No grades with this value found")
+        case "4":
+            num1= int(input("Enter numbers to delete "))
+            grades.remove(num1)
+        case "5":
+            print([grade for grade in grades if grade >=60])
+        case "6":
+            print([grade for grade in grades if grade <60])
+        case "7":
+            highest = grades[0]
+            lowest = grades[0]
+            for i in grades:
+                if i > highest:
+                    highest = i 
+                if i < lowest:
+                    lowest = i 
+            print(f"highest {highest} lowest {lowest}")
+        case "8":
+            print(f"{sum([i for i in grades])/len(grades)}")
+        case "9":
+            print(grades[:3])# sorted?
+        case "10":
+            print(grades[::-1])# sorted? 
+        case "0":
+            exit = False
+            print("Goodby")
+
